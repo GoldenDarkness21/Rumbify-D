@@ -1062,6 +1062,22 @@ const deleteParty = async (req, res) => {
       return res.status(404).json({ success: false, message: "Party not found" });
     }
 
+    // Best effort: remove guests from Invitados_Lista
+    try {
+      const { error: guestsListErr } = await supabaseCli.from("Invitados_Lista").delete().eq("party_id", partyId);
+      if (guestsListErr) console.warn("Invitados_Lista deletion error:", guestsListErr?.message || guestsListErr);
+    } catch (guestsListErr) {
+      console.warn("Invitados_Lista deletion failed or table missing:", guestsListErr?.message || guestsListErr);
+    }
+
+    // Best effort: remove guests from Invitados_Fiesta
+    try {
+      const { error: guestsFiestaErr } = await supabaseCli.from("Invitados_Fiesta").delete().eq("party_id", partyId);
+      if (guestsFiestaErr) console.warn("Invitados_Fiesta deletion error:", guestsFiestaErr?.message || guestsFiestaErr);
+    } catch (guestsFiestaErr) {
+      console.warn("Invitados_Fiesta deletion failed or table missing:", guestsFiestaErr?.message || guestsFiestaErr);
+    }
+
     // Best effort: remove QR codes
     try {
       const { error: qrErr } = await supabaseCli.from("qr_codes").delete().eq("party_id", partyId);
