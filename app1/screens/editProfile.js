@@ -571,7 +571,8 @@ async function uploadProfileImage(file) {
   formData.append('profile_image', file);
   
   // Upload image to server with user email in header
-  const response = await fetch(`/users/${currentUser.id}/profile-image`, {
+  const BASE_URL = "https://my-backend-weld-beta.vercel.app";
+  const response = await fetch(`${BASE_URL}/users/${currentUser.id}/profile-image`, {
     method: 'POST',
     headers: {
       'x-user-email': currentUser.email
