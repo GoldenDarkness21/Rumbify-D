@@ -58,8 +58,8 @@ export default async function renderManageParty(routeData = {}) {
           <img id="ga-avatar" src="/assets/userIcon.svg" alt="Avatar" class="modal-avatar"/>
           <div id="ga-name" class="modal-name">Invitado</div>
           <div class="modal-actions">
-            <button id="ga-approve" class="btn btn-approve">✁E/button>
-            <button id="ga-reject" class="btn btn-reject">X</button>
+            <button id="ga-approve" class="btn btn-approve">✓</button>
+            <button id="ga-reject" class="btn btn-reject">✗</button>
           </div>
         </div>
       </div>
