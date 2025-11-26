@@ -31,7 +31,7 @@ export default function renderAdminDashboard(data = {}) {
         <!-- Header -->
         <div class="admin-header">
           <div class="admin-logo">
-            <img src="assets/Llogowhite.png" alt="Rumbify Admin" class="admin-logo-img" />
+            <img src="/assets/Llogowhite.png" alt="Rumbify Admin" class="admin-logo-img" />
           </div>
           <div class="admin-user-info">
             <h2 class="admin-welcome">Welcome, ${name}</h2>
@@ -40,7 +40,7 @@ export default function renderAdminDashboard(data = {}) {
           </div>
           <div class="admin-header-actions">
             <button class="admin-profile-btn" id="profileBtn">
-              <img src="assets/person.svg" alt="Profile" class="profile-icon" />
+              <img src="/assets/person.svg" alt="Profile" class="profile-icon" />
             </button>
             <button class="admin-logout-btn" onclick="handleLogout()">Logout</button>
           </div>

@@ -18,7 +18,7 @@ export default function renderAdminRegister(data = {}) {
         <!-- Logo Section -->
         <div class="logo-section">
           <div class="logo-container">
-            <img src="assets/Llogowhite.png" alt="Rumbify Admin Logo" class="admin-register-logo" />
+            <img src="/assets/Llogowhite.png" alt="Rumbify Admin Logo" class="admin-register-logo" />
           </div>
         </div>
 

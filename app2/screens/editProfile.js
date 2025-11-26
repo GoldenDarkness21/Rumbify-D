@@ -22,7 +22,7 @@ export default function renderEditProfile() {
         <div class="profile-picture-container">
           <img src="${adminUser?.profile_image || 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face'}" alt="Profile" class="profile-picture" id="profilePicture" />
           <button class="camera-btn" id="changePictureBtn">
-            <img src="assets/edit.svg" alt="Edit" class="camera-icon" />
+            <img src="/assets/edit.svg" alt="Edit" class="camera-icon" />
           </button>
         </div>
         <p class="profile-picture-hint">Tap to change profile picture</p>
@@ -227,7 +227,7 @@ function loadSelectedInterests(interests) {
   selectedContainer.innerHTML = interests.map(interest => `
     <div class="selected-interest-chip" data-interest="${interest}">
       <span>${interest}</span>
-      <button class="remove-interest-btn" data-interest="${interest}">×</button>
+      <button class="remove-interest-btn" data-interest="${interest}">ÁE/button>
     </div>
   `).join("");
 
@@ -276,7 +276,7 @@ function toggleInterest(interest) {
     selectedChip.dataset.interest = interest;
     selectedChip.innerHTML = `
       <span>${interest}</span>
-      <button class="remove-interest-btn" data-interest="${interest}">×</button>
+      <button class="remove-interest-btn" data-interest="${interest}">ÁE/button>
     `;
     
     // Add click listener to remove button

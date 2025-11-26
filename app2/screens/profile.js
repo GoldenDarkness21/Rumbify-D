@@ -18,7 +18,7 @@ export default function renderProfile() {
         <div class="profile-picture-container">
           <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face" alt="Profile" class="profile-picture" />
           <button class="camera-btn">
-            <img src="assets/edit.svg" alt="Edit" class="camera-icon" />
+            <img src="/assets/edit.svg" alt="Edit" class="camera-icon" />
           </button>
         </div>
         <h1 class="profile-name" id="profileName">DJ KC</h1>
@@ -63,9 +63,9 @@ export default function renderProfile() {
       <div class="settings-section">
         <div class="settings-list">
           <div class="settings-item" id="editProfileBtn">
-            <img src="assets/edit.svg" alt="Edit Profile" class="settings-icon" />
+            <img src="/assets/edit.svg" alt="Edit Profile" class="settings-icon" />
             <span class="settings-text">Edit profile</span>
-            <img src="assets/backIcon.svg" alt="Arrow" class="arrow-icon" />
+            <img src="/assets/backIcon.svg" alt="Arrow" class="arrow-icon" />
           </div>
           <div class="settings-item" id="logoutBtn">
             <svg class="settings-icon logout-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -406,28 +406,28 @@ function loadUserInterests(interests) {
 
   // Map interest names to their corresponding CSS classes and icons
   const interestConfig = {
-    "Disco Music": { class: "disco", icon: "assets/partyIcon.svg" },
-    "Elegant": { class: "elegant", icon: "assets/partyIcon.svg" },
-    "Cocktailing": { class: "cocktail", icon: "assets/partyIcon.svg" },
-    "House Music": { class: "house", icon: "assets/partyIcon.svg" },
-    "Techno": { class: "techno", icon: "assets/partyIcon.svg" },
-    "Jazz": { class: "jazz", icon: "assets/partyIcon.svg" },
-    "Rock": { class: "rock", icon: "assets/partyIcon.svg" },
-    "Pop": { class: "pop", icon: "assets/partyIcon.svg" },
-    "Electronic": { class: "electronic", icon: "assets/partyIcon.svg" },
-    "Classical": { class: "classical", icon: "assets/partyIcon.svg" },
-    "Hip Hop": { class: "hiphop", icon: "assets/partyIcon.svg" },
-    "R&B": { class: "rnb", icon: "assets/partyIcon.svg" },
-    "Reggae": { class: "reggae", icon: "assets/partyIcon.svg" },
-    "Country": { class: "country", icon: "assets/partyIcon.svg" },
-    "Blues": { class: "blues", icon: "assets/partyIcon.svg" },
-    "Folk": { class: "folk", icon: "assets/partyIcon.svg" },
-    "Indie": { class: "indie", icon: "assets/partyIcon.svg" },
-    "Alternative": { class: "alternative", icon: "assets/partyIcon.svg" }
+    "Disco Music": { class: "disco", icon: "/assets/partyIcon.svg" },
+    "Elegant": { class: "elegant", icon: "/assets/partyIcon.svg" },
+    "Cocktailing": { class: "cocktail", icon: "/assets/partyIcon.svg" },
+    "House Music": { class: "house", icon: "/assets/partyIcon.svg" },
+    "Techno": { class: "techno", icon: "/assets/partyIcon.svg" },
+    "Jazz": { class: "jazz", icon: "/assets/partyIcon.svg" },
+    "Rock": { class: "rock", icon: "/assets/partyIcon.svg" },
+    "Pop": { class: "pop", icon: "/assets/partyIcon.svg" },
+    "Electronic": { class: "electronic", icon: "/assets/partyIcon.svg" },
+    "Classical": { class: "classical", icon: "/assets/partyIcon.svg" },
+    "Hip Hop": { class: "hiphop", icon: "/assets/partyIcon.svg" },
+    "R&B": { class: "rnb", icon: "/assets/partyIcon.svg" },
+    "Reggae": { class: "reggae", icon: "/assets/partyIcon.svg" },
+    "Country": { class: "country", icon: "/assets/partyIcon.svg" },
+    "Blues": { class: "blues", icon: "/assets/partyIcon.svg" },
+    "Folk": { class: "folk", icon: "/assets/partyIcon.svg" },
+    "Indie": { class: "indie", icon: "/assets/partyIcon.svg" },
+    "Alternative": { class: "alternative", icon: "/assets/partyIcon.svg" }
   };
 
   interestsContainer.innerHTML = interestsArray.map(interest => {
-    const config = interestConfig[interest] || { class: "default", icon: "assets/partyIcon.svg" };
+    const config = interestConfig[interest] || { class: "default", icon: "/assets/partyIcon.svg" };
     return `
       <div class="interest-tag ${config.class}">
         <img src="${config.icon}" alt="${interest}" class="tag-icon" />

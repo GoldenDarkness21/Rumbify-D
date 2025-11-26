@@ -75,12 +75,12 @@ export default async function renderGuestsSummary(routeData = {}) {
       <!-- Modal: aceptar/denegar invitado -->
       <div id="guestModal" class="modal-overlay hidden">
         <div class="modal-card">
-          <div class="modal-close" id="gm-close">×</div>
+          <div class="modal-close" id="gm-close">ÁE/div>
           <div class="modal-title">Solicitud de invitación</div>
           <img id="gm-avatar" src="./assets/userIcon.svg" alt="Avatar" class="modal-avatar"/>
           <div id="gm-name" class="modal-name">Invitado</div>
           <div class="modal-actions">
-            <button id="gm-approve" class="btn btn-approve">✓</button>
+            <button id="gm-approve" class="btn btn-approve">✁E/button>
             <button id="gm-reject" class="btn btn-reject">X</button>
           </div>
         </div>

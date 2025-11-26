@@ -105,7 +105,7 @@ export default function renderMyParties(data = {}) {
     console.log('1. Admin user in localStorage:', adminUser);
     
     if (!adminUser.email) {
-      console.error('❌ No admin email found in localStorage');
+      console.error('❁ENo admin email found in localStorage');
       return;
     }
     
@@ -118,16 +118,16 @@ export default function renderMyParties(data = {}) {
       console.log('4. API Response:', response);
       
       if (response.success) {
-        console.log('✅ API call successful');
+        console.log('✁EAPI call successful');
         console.log('5. Number of parties returned:', response.parties?.length || 0);
         if (response.parties && response.parties.length > 0) {
           console.log('6. First party:', response.parties[0]);
         }
       } else {
-        console.error('❌ API call failed:', response.message);
+        console.error('❁EAPI call failed:', response.message);
       }
     } catch (error) {
-      console.error('❌ API call error:', error);
+      console.error('❁EAPI call error:', error);
     }
     
     console.log('=== END TEST ===');
@@ -144,14 +144,14 @@ export default function renderMyParties(data = {}) {
       console.log('2. All parties response:', allPartiesResponse);
       
       if (allPartiesResponse && allPartiesResponse.length > 0) {
-        console.log('✅ Found parties in database:', allPartiesResponse.length);
+        console.log('✁EFound parties in database:', allPartiesResponse.length);
         console.log('3. First party:', allPartiesResponse[0]);
         console.log('4. Administrator field:', allPartiesResponse[0].administrator);
       } else {
-        console.log('❌ No parties found in database');
+        console.log('❁ENo parties found in database');
       }
     } catch (error) {
-      console.error('❌ Database test error:', error);
+      console.error('❁EDatabase test error:', error);
     }
     
     console.log('=== END DATABASE TEST ===');
@@ -338,10 +338,10 @@ function displayParties(parties) {
       </div>
       <div class="event-controls">
         <button class="edit-btn" onclick="handleEditParty(${party.id})">
-          <img src="assets/edit.svg" alt="Edit" />
+          <img src="/assets/edit.svg" alt="Edit" />
         </button>
         <button class="delete-btn" onclick="handleDeleteParty(${party.id})">
-          <img src="assets/deleteButton.svg" alt="Delete" />
+          <img src="/assets/deleteButton.svg" alt="Delete" />
         </button>
       </div>
     </div>

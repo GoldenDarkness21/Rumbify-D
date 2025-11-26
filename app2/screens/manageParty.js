@@ -53,12 +53,12 @@ export default async function renderManageParty(routeData = {}) {
       <!-- Guest Approval Modal -->
       <div id="guestApprovalModal" class="modal-overlay hidden">
         <div class="modal-card">
-          <div class="modal-close" id="ga-close">×</div>
+          <div class="modal-close" id="ga-close">ÁE/div>
           <div class="modal-title">Solicitud de invitación</div>
           <img id="ga-avatar" src="./assets/userIcon.svg" alt="Avatar" class="modal-avatar"/>
           <div id="ga-name" class="modal-name">Invitado</div>
           <div class="modal-actions">
-            <button id="ga-approve" class="btn btn-approve">✓</button>
+            <button id="ga-approve" class="btn btn-approve">✁E/button>
             <button id="ga-reject" class="btn btn-reject">X</button>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default async function renderManageParty(routeData = {}) {
         <div class="modal-content">
           <div class="modal-header">
             <h3>Create Entry Codes</h3>
-            <button id="closeCreateModal" class="close-modal">×</button>
+            <button id="closeCreateModal" class="close-modal">ÁE/button>
           </div>
           <form id="createCodesForm" class="create-codes-form">
             <div class="form-group">
@@ -113,7 +113,7 @@ export default async function renderManageParty(routeData = {}) {
         <div class="modal-content">
           <div class="modal-header">
             <h3>Generated Codes</h3>
-            <button id="closeDisplayModal" class="close-modal">×</button>
+            <button id="closeDisplayModal" class="close-modal">ÁE/button>
           </div>
           <div class="codes-display">
             <p><strong>Ticket Type:</strong> <span id="displayTicketType"></span></p>
