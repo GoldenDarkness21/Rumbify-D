@@ -564,9 +564,9 @@ function createHotTopicCard(event) {
   
   // Map tags to icons (similar to member dashboard)
   const tagIcons = {
-    "Elegant": "assets/edit.svg",
-    "Cocktailing": "assets/partyIcon.svg",
-    "Disco Music": "assets/partyIcon.svg"
+    "Elegant": "/assets/edit.svg",
+    "Cocktailing": "/assets/partyIcon.svg",
+    "Disco Music": "/assets/partyIcon.svg"
   };
   
   return `
@@ -615,7 +615,7 @@ function createHotTopicCard(event) {
                               'tag-default';
               return `
               <div class="hot-topic-tag ${tagClass}">
-                <img src="${tagIcons[tag] || 'assets/partyIcon.svg'}" alt="${tag}" class="tag-icon" />
+                <img src="${tagIcons[tag] || '/assets/partyIcon.svg'}" alt="${tag}" class="tag-icon" />
                 <span>${tag}</span>
               </div>
             `;
@@ -634,10 +634,10 @@ function createUpcomingCard(event) {
   
   // Map tags to icons
   const tagIcons = {
-    "Elegant": "assets/edit.svg",
-    "Cocktailing": "assets/partyIcon.svg",
-    "Disco Music": "assets/partyIcon.svg",
-    "Outdoor": "assets/partyIcon.svg"
+    "Elegant": "/assets/edit.svg",
+    "Cocktailing": "/assets/partyIcon.svg",
+    "Disco Music": "/assets/partyIcon.svg",
+    "Outdoor": "/assets/partyIcon.svg"
   };
   
   // Get tags (limit to 2 for display)
@@ -696,7 +696,7 @@ function createUpcomingCard(event) {
                               'tag-default';
               return `
               <div class="upcoming-tag ${tagClass}">
-                <img src="${tagIcons[tag] || 'assets/partyIcon.svg'}" alt="${tag}" class="tag-icon" />
+                <img src="${tagIcons[tag] || '/assets/partyIcon.svg'}" alt="${tag}" class="tag-icon" />
                 <span>${tag}</span>
               </div>
             `;

@@ -407,10 +407,10 @@ function renderUpcomingCarousel(events) {
 
   // Map tags to icons
   const tagIcons = {
-    "Elegant": "assets/edit.svg",
-    "Cocktailing": "assets/partyIcon.svg",
-    "Disco Music": "assets/partyIcon.svg",
-    "Outdoor": "assets/partyIcon.svg"
+    "Elegant": "/assets/edit.svg",
+    "Cocktailing": "/assets/partyIcon.svg",
+    "Disco Music": "/assets/partyIcon.svg",
+    "Outdoor": "/assets/partyIcon.svg"
   };
   
   const eventsHTML = events.map(event => {

@@ -155,12 +155,12 @@ async function initializePartyDetails(partyId) {
       return;
     }
     
-    console.log("Step 1: ✅ Party details loaded");
+    console.log("Step 1: ✁EParty details loaded");
     
     // Setup event listeners
     console.log("Step 2: Setting up event listeners...");
     setupPartyDetailsEventListeners();
-    console.log("Step 2: ✅ Event listeners setup");
+    console.log("Step 2: ✁EEvent listeners setup");
     
     console.log("=== INITIALIZATION COMPLETE ===");
     
@@ -361,19 +361,19 @@ async function loadPartyDetails(partyId) {
     // Load Google Maps (non-blocking)
     console.log('[loadPartyDetails] Loading Google Maps...');
     loadGoogleMap(party.location);
-    console.log('[loadPartyDetails] ✅ Google Maps loaded');
+    console.log('[loadPartyDetails] ✁EGoogle Maps loaded');
     
     // Dress code section removed per request
     
     // Load party description
     console.log('[loadPartyDetails] Loading party description...');
     await loadPartyDescription(partyId);
-    console.log('[loadPartyDetails] ✅ Party description loaded');
+    console.log('[loadPartyDetails] ✁EParty description loaded');
     
     // Load QR code
     console.log('[loadPartyDetails] Loading QR code...');
     await loadQRCode(partyId);
-    console.log('[loadPartyDetails] ✅ QR code loaded');
+    console.log('[loadPartyDetails] ✁EQR code loaded');
     
     console.log('[loadPartyDetails] === PARTY DATA LOAD COMPLETE ===');
     

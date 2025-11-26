@@ -9,7 +9,7 @@ export default function renderLogin(data = {}) {
         <div class="logo-section">
           <div class="logo-container">
             <!-- Replaceable Logo -->
-            <img src="assets/Llogowhite.png" alt="Rumbify Logo" class="login-logo" />
+            <img src="/assets/Llogowhite.png" alt="Rumbify Logo" class="login-logo" />
           </div>
         </div>
 
@@ -60,7 +60,7 @@ export default function renderLogin(data = {}) {
         <!-- Back Button -->
         <div class="back-section">
           <button class="back-btn">
-            ← Back to Welcome
+            ↁEBack to Welcome
           </button>
         </div>
       </div>

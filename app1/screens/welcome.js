@@ -12,7 +12,7 @@ export default function renderWelcome() {
     <div id="welcome-screen">
       <div class="welcome-content">
         <div class="logo-container">
-          <img src="assets/Llogowhite.png" alt="Rumbify Logo" class="logo-image" />
+          <img src="/assets/Llogowhite.png" alt="Rumbify Logo" class="logo-image" />
         </div>
         
         <div class="button-container">
