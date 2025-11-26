@@ -17,8 +17,11 @@ async function loadQrScanner() {
     QrScannerClass = window.QrScanner;
     return QrScannerClass;
   }
-  await injectScript("/app2/lib/qr-scanner.legacy.min.js");
-  if (!window.QrScanner) throw new Error("QrScanner global missing");
+  // Load QR Scanner library from CDN
+  console.log('[QR Scanner] Loading from CDN...');
+  await injectScript("https://cdn.jsdelivr.net/npm/qr-scanner@1.4.2/qr-scanner.min.js");
+  if (!window.QrScanner) throw new Error("QrScanner global missing after load");
+  console.log('[QR Scanner] Loaded successfully');
   QrScannerClass = window.QrScanner;
   return QrScannerClass;
 }
