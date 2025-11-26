@@ -80,8 +80,8 @@ export default async function renderGuestsSummary(routeData = {}) {
           <img id="gm-avatar" src="/assets/userIcon.svg" alt="Avatar" class="modal-avatar"/>
           <div id="gm-name" class="modal-name">Invitado</div>
           <div class="modal-actions">
-            <button id="gm-approve" class="btn btn-approve">✓</button>
-            <button id="gm-reject" class="btn btn-reject">✗</button>
+            <button id="gm-approve" class="btn btn-approve">✁E/button>
+            <button id="gm-reject" class="btn btn-reject">X</button>
           </div>
         </div>
       </div>

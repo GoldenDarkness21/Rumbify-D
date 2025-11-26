@@ -17,8 +17,7 @@ async function loadQrScanner() {
     QrScannerClass = window.QrScanner;
     return QrScannerClass;
   }
-  // Load from CDN since local file doesn't exist
-  await injectScript("https://cdn.jsdelivr.net/npm/qr-scanner@1.4.2/qr-scanner.min.js");
+  await injectScript("/app2/lib/qr-scanner.legacy.min.js");
   if (!window.QrScanner) throw new Error("QrScanner global missing");
   QrScannerClass = window.QrScanner;
   return QrScannerClass;
