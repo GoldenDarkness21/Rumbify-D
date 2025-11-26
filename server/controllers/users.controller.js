@@ -347,6 +347,28 @@ const updateUserProfile = async (req, res) => {
       });
     }
 
+    // If user is admin and name changed, update all their parties' administrator field
+    if (updatedUser.is_admin && existingRow.name !== updatedUser.name) {
+      console.log(`[updateUserProfile] Admin name changed from "${existingRow.name}" to "${updatedUser.name}"`);
+      console.log(`[updateUserProfile] Updating all parties for this admin...`);
+      
+      try {
+        const { data: updatedParties, error: partiesUpdateError } = await supabaseCli
+          .from("parties")
+          .update({ administrator: updatedUser.name })
+          .eq("administrator", existingRow.name)
+          .select();
+
+        if (partiesUpdateError) {
+          console.error("[updateUserProfile] Error updating parties administrator:", partiesUpdateError);
+        } else {
+          console.log(`[updateUserProfile] Updated ${updatedParties?.length || 0} parties with new admin name`);
+        }
+      } catch (partiesError) {
+        console.error("[updateUserProfile] Exception updating parties:", partiesError);
+      }
+    }
+
     // Return updated user data
     res.json({
       success: true,
