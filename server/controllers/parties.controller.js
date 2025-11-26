@@ -1062,23 +1062,34 @@ const deleteParty = async (req, res) => {
       return res.status(404).json({ success: false, message: "Party not found" });
     }
 
+    // Best effort: remove QR codes
+    try {
+      const { error: qrErr } = await supabaseCli.from("qr_codes").delete().eq("party_id", partyId);
+      if (qrErr) console.warn("QR codes deletion error:", qrErr?.message || qrErr);
+    } catch (qrErr) {
+      console.warn("QR codes deletion failed or table missing:", qrErr?.message || qrErr);
+    }
+
     // Best effort: remove entry codes
     try {
-      await supabaseCli.from("Codes").delete().eq("party_id", partyId);
+      const { error: codesErr } = await supabaseCli.from("Codes").delete().eq("party_id", partyId);
+      if (codesErr) console.warn("Codes deletion error:", codesErr?.message || codesErr);
     } catch (codesErr) {
       console.warn("Codes deletion failed or table missing:", codesErr?.message || codesErr);
     }
 
     // Best effort: remove prices
     try {
-      await supabaseCli.from("prices").delete().eq("party_id", partyId);
+      const { error: pricesErr } = await supabaseCli.from("prices").delete().eq("party_id", partyId);
+      if (pricesErr) console.warn("Prices deletion error:", pricesErr?.message || pricesErr);
     } catch (pricesErr) {
       console.warn("Prices deletion failed or table missing:", pricesErr?.message || pricesErr);
     }
 
     // Best effort: remove descriptions
     try {
-      await supabaseCli.from("descriptions").delete().eq("party_id", partyId);
+      const { error: descErr } = await supabaseCli.from("descriptions").delete().eq("party_id", partyId);
+      if (descErr) console.warn("Descriptions deletion error:", descErr?.message || descErr);
     } catch (descErr) {
       console.warn("Descriptions deletion failed or table missing:", descErr?.message || descErr);
     }
@@ -1103,6 +1114,7 @@ const deleteParty = async (req, res) => {
     }
 
     // Delete party (explicit after dependents)
+    console.log(`[deleteParty] Attempting to delete party ${partyId}`);
     const { data: deleted, error: delErr } = await supabaseCli
       .from("parties")
       .delete()
@@ -1111,13 +1123,30 @@ const deleteParty = async (req, res) => {
 
     if (delErr) {
       console.error("Party deletion error:", delErr);
-      return res.status(500).json({ success: false, message: "Failed to delete party", error: delErr?.message || delErr });
+      console.error("Error details:", {
+        code: delErr.code,
+        message: delErr.message,
+        details: delErr.details,
+        hint: delErr.hint
+      });
+      return res.status(500).json({ 
+        success: false, 
+        message: "Failed to delete party", 
+        error: delErr?.message || delErr,
+        errorCode: delErr?.code
+      });
     }
 
+    console.log(`[deleteParty] Successfully deleted party ${partyId}`);
     return res.json({ success: true, party: deleted?.[0] || { id: partyId } });
   } catch (error) {
     console.error("Unexpected deleteParty error:", error);
-    return res.status(500).json({ success: false, message: "Internal server error" });
+    console.error("Error stack:", error.stack);
+    return res.status(500).json({ 
+      success: false, 
+      message: "Internal server error",
+      error: error.message
+    });
   }
 };
 
