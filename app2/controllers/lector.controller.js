@@ -1,29 +1,19 @@
 let QrScannerClass = null;
 
-function injectScript(src) {
-  return new Promise((resolve, reject) => {
-    const s = document.createElement("script");
-    s.src = src;
-    s.async = true;
-    s.onload = () => resolve();
-    s.onerror = () => reject(new Error("failed to load script"));
-    document.head.appendChild(s);
-  });
-}
-
 async function loadQrScanner() {
   if (QrScannerClass) return QrScannerClass;
-  if (window.QrScanner) {
-    QrScannerClass = window.QrScanner;
-    return QrScannerClass;
-  }
-  // Load QR Scanner library from CDN
+  
+  // Load QR Scanner library as ES module from CDN
   console.log('[QR Scanner] Loading from CDN...');
-  await injectScript("https://cdn.jsdelivr.net/npm/qr-scanner@1.4.2/qr-scanner.min.js");
-  if (!window.QrScanner) throw new Error("QrScanner global missing after load");
-  console.log('[QR Scanner] Loaded successfully');
-  QrScannerClass = window.QrScanner;
-  return QrScannerClass;
+  try {
+    const QrScannerModule = await import('https://cdn.jsdelivr.net/npm/qr-scanner@1.4.2/qr-scanner.min.js');
+    QrScannerClass = QrScannerModule.default || QrScannerModule.QrScanner || QrScannerModule;
+    console.log('[QR Scanner] Loaded successfully');
+    return QrScannerClass;
+  } catch (error) {
+    console.error('[QR Scanner] Failed to load:', error);
+    throw new Error("Failed to load QR Scanner library");
+  }
 }
 
 function createModal() {
