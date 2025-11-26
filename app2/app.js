@@ -179,10 +179,15 @@ export { navigateTo, socket, makeRequest };
 export { resolveApiBase };
 async function resolveApiBase() {
   if (window.__API_BASE__) return window.__API_BASE__;
-  const primary = window.location.origin;
-  const candidates = [primary];
-  if (!primary.includes(':5050')) candidates.push('http://localhost:5050');
-  if (!primary.includes(':5052')) candidates.push('http://localhost:5052');
+  
+  // In production, always use the backend URL
+  if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    window.__API_BASE__ = 'https://my-backend-weld-beta.vercel.app';
+    return window.__API_BASE__;
+  }
+  
+  // In development, try to detect local backend
+  const candidates = ['http://localhost:5050', 'http://localhost:5052'];
   for (const base of candidates) {
     try {
       const resp = await fetch(`${base}/codes/test`, { method: 'GET' });
@@ -192,6 +197,8 @@ async function resolveApiBase() {
       }
     } catch (_) {}
   }
-  window.__API_BASE__ = primary;
+  
+  // Fallback to backend URL
+  window.__API_BASE__ = 'https://my-backend-weld-beta.vercel.app';
   return window.__API_BASE__;
 }
