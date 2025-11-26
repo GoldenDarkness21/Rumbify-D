@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { testConnection, generateCodes, getPartyCodes, validateCode, useCode, verifyAndAddParty, getQRCode, scanQRCode, diagnoseQRCodes } = require('../controllers/codes.controller');
 
+// Routes for entry codes management
 // Test database connection
 router.get('/test', testConnection);
 
