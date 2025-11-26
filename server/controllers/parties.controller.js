@@ -1064,7 +1064,7 @@ const deleteParty = async (req, res) => {
 
     // Best effort: remove entry codes
     try {
-      await supabaseCli.from("codes").delete().eq("party_id", partyId);
+      await supabaseCli.from("Codes").delete().eq("party_id", partyId);
     } catch (codesErr) {
       console.warn("Codes deletion failed or table missing:", codesErr?.message || codesErr);
     }
