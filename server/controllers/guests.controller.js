@@ -57,15 +57,18 @@ async function getPartyGuests(req, res) {
     let usersMap = {};
 
     if (guestNames.length > 0) {
+      // Buscar por email en vez de nombre
       try {
+        // Obtener los emails de los invitados
+        const guestEmails = [...new Set((Array.isArray(data) ? data : []).map(g => g.email).filter(Boolean))];
         const { data: users, error: usersError } = await supabaseCli
           .from("users")
-          .select("name, profile_image")
-          .in("name", guestNames);
+          .select("email, profile_image")
+          .in("email", guestEmails);
 
         if (!usersError && users) {
           usersMap = users.reduce((acc, user) => {
-            acc[user.name] = user.profile_image;
+            acc[user.email] = user.profile_image;
             return acc;
           }, {});
         }
@@ -79,8 +82,9 @@ async function getPartyGuests(req, res) {
       return {
         id: g.id,
         name: g.name,
+        email: g.email,
         status: flag === true ? "Valid" : (flag === false ? "Invalid" : "Pending"),
-        avatar: usersMap[g.name] || null,
+        avatar: usersMap[g.email] || null,
         time: null,
       };
     });
