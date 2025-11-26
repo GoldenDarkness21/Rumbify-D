@@ -80,8 +80,8 @@ export default async function renderGuestsSummary(routeData = {}) {
           <img id="gm-avatar" src="/assets/userIcon.svg" alt="Avatar" class="modal-avatar"/>
           <div id="gm-name" class="modal-name">Invitado</div>
           <div class="modal-actions">
-            <button id="gm-approve" class="btn btn-approve">✁E/button>
-            <button id="gm-reject" class="btn btn-reject">X</button>
+            <button id="gm-approve" class="btn btn-approve">✓</button>
+            <button id="gm-reject" class="btn btn-reject">✗</button>
           </div>
         </div>
       </div>
@@ -118,8 +118,8 @@ export default async function renderGuestsSummary(routeData = {}) {
     document.getElementById('deniedCount').textContent = summary?.totals?.denied ?? 0;
 
     const renderItems = (items, status) => items.map(g => `
-      <li class="guest-item" data-id="${g.id}" data-name="${g.name}" data-status="${status}">
-        <img src="/assets/userIcon.svg" alt="${g.name}" class="guest-avatar"/>
+      <li class="guest-item" data-id="${g.id}" data-name="${g.name}" data-avatar="${g.avatar || ''}" data-status="${status}">
+        <img src="${g.avatar || '/assets/userIcon.svg'}" alt="${g.name}" class="guest-avatar"/>
         <div class="guest-info">
           <div class="guest-name">${g.name}</div>
           <div class="guest-time"></div>
@@ -152,6 +152,10 @@ export default async function renderGuestsSummary(routeData = {}) {
     const openModal = (guest) => {
       currentGuest = guest;
       modalNameEl.textContent = guest?.name || 'Invitado';
+      const modalAvatarEl = document.getElementById('gm-avatar');
+      if (modalAvatarEl) {
+        modalAvatarEl.src = guest?.avatar || '/assets/userIcon.svg';
+      }
       modalEl.classList.remove('hidden');
     };
     const closeModal = () => {
@@ -173,7 +177,8 @@ export default async function renderGuestsSummary(routeData = {}) {
       // Add to target list
       const targetKey = newStatus === 'validated' ? 'validated' : 'denied';
       const displayName = currentGuest?.name || 'Invitado';
-      summaryData.lists[targetKey] = [{ id: guestId, name: displayName }, ...(summaryData.lists[targetKey] || [])];
+      const displayAvatar = currentGuest?.avatar || null;
+      summaryData.lists[targetKey] = [{ id: guestId, name: displayName, avatar: displayAvatar }, ...(summaryData.lists[targetKey] || [])];
       // Recompute totals
       const totalArr = ['pending','validated','denied'].map(k => summaryData.lists[k]?.length || 0);
       summaryData.totals.validated = summaryData.lists.validated.length;
@@ -206,6 +211,21 @@ export default async function renderGuestsSummary(routeData = {}) {
         console.error('Error denying guest:', e);
       }
     });
+
+    // Add event delegation for clicking on pending guests to open modal
+    document.getElementById('pendingList')?.addEventListener('click', (e) => {
+      const guestItem = e.target.closest('.guest-item');
+      if (guestItem && guestItem.dataset.status === 'Pending') {
+        const guestId = guestItem.dataset.id;
+        const guestName = guestItem.dataset.name;
+        const guestAvatar = guestItem.dataset.avatar || '/assets/userIcon.svg';
+        const guest = summaryData?.lists?.pending?.find(g => String(g.id) === String(guestId));
+        if (guest) {
+          openModal({ ...guest, avatar: guestAvatar });
+        }
+      }
+    });
+
   } catch (err) {
     console.error('Error loading guests summary:', err);
   }
