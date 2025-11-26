@@ -1,5 +1,6 @@
 import renderScreen1 from "./screens/screen1.js";
 import renderScreen2 from "./screens/screen2.js";
+import renderWelcome from "./screens/welcome.js";
 import renderAdminLogin from "./screens/adminLogin.js";
 import renderAdminRegister from "./screens/adminRegister.js";
 import renderAdminDashboard from "./screens/adminDashboard.js";
@@ -19,7 +20,7 @@ function clearScripts() {
 
 function getInitialRoute() {
   const path = window.location.pathname;
-  const cleanPath = path.replace('/app2', '') || '/admin-login';
+  const cleanPath = path.replace('/app2', '') || '/welcome';
   const params = new URLSearchParams(window.location.search);
   const data = {};
   // Recuperar contexto de edición para create-party desde query/localStorage
@@ -80,6 +81,10 @@ function renderRoute(currentRoute) {
   }
 
   switch (currentRoute.path) {
+    case "/welcome":
+      clearScripts();
+      renderWelcome(currentRoute?.data);
+      break;
     case "/admin-login":
       clearScripts();
       renderAdminLogin(currentRoute?.data);
@@ -125,11 +130,11 @@ function renderRoute(currentRoute) {
       renderMyParties(currentRoute?.data);
       break;
     default:
-      // Verificar si el usuario es admin antes de redirigir a app1
+      // Verificar si el usuario es admin antes de redirigir
       if (authManager.isUserAdmin()) {
         window.location.href = '/my-parties';
       } else {
-        window.location.href = 'https://app1-rumbify.vercel.app/welcome';
+        window.location.href = '/welcome';
       }
   }
 }
