@@ -134,7 +134,7 @@ function renderRoute(currentRoute) {
 async function makeRequest(url, method, body) {
   console.log('[makeRequest] Making request:', { url, method, body });
   
-  const BASE_URL = "https://my-backend-weld-beta.vercel.app"; // same-origin
+  const BASE_URL = "https://my-backend-iota-sooty.vercel.app"; // same-origin
   const endpoint = `${BASE_URL}${url}`;
   
   console.log('[makeRequest] Full endpoint:', endpoint);

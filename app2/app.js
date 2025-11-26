@@ -182,7 +182,7 @@ async function resolveApiBase() {
   
   // In production, always use the backend URL
   if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-    window.__API_BASE__ = 'https://my-backend-weld-beta.vercel.app';
+    window.__API_BASE__ = 'https://my-backend-iota-sooty.vercel.app';
     return window.__API_BASE__;
   }
   
@@ -199,6 +199,6 @@ async function resolveApiBase() {
   }
   
   // Fallback to backend URL
-  window.__API_BASE__ = 'https://my-backend-weld-beta.vercel.app';
+  window.__API_BASE__ = 'https://my-backend-iota-sooty.vercel.app';
   return window.__API_BASE__;
 }
