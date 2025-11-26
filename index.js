@@ -13,6 +13,9 @@ const { initSocketInstance } = require("./server/services/socket.service");
 
 const PORT = Number(process.env.PORT) || 5052;
 
+//cors
+app.use(cors());
+
 const app = express();
 const httpServer = createServer(app);
 
