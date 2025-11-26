@@ -33,6 +33,6 @@ export default function renderWelcome() {
 
   document.getElementById("admin-btn").addEventListener("click", () => {
     // Redirect to app2 for admin login
-    window.location.href = '/app2/admin-login';
+    window.location.href = 'https://app2-rumbify.vercel.app/admin-login';
   });
 }

@@ -17,18 +17,27 @@ export default function renderWelcome(data = {}) {
         </div>
         
         <div class="button-container">
+          <button id="member-btn" class="role-button member-button">
+            Member
+          </button>
           <button id="admin-btn" class="role-button admin-button">
             Administrator
           </button>
         </div>
 
-        <p class="welcome-subtitle">Access as administrator to manage your events</p>
+        <p class="welcome-subtitle">Choose your role to access the platform</p>
       </div>
     </div>
   `;
 
-  // Add event listener for admin button
+  // Add event listeners
+  const memberBtn = document.getElementById("member-btn");
   const adminBtn = document.getElementById("admin-btn");
+  
+  memberBtn.addEventListener("click", () => {
+    window.location.href = "https://app1-rumbify.vercel.app/login";
+  });
+  
   adminBtn.addEventListener("click", () => {
     navigateTo("/admin-login");
   });

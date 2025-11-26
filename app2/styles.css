@@ -2219,6 +2219,16 @@ input:checked + .toggle-slider:before {
   overflow: hidden;
 }
 
+.member-button {
+  background-color: #4A1CAE;
+  animation: buttonSlideIn 0.6s ease-out both;
+}
+
+.member-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+}
+
 .admin-button {
   background-color: #08A920;
   animation: buttonSlideIn 0.6s ease-out both;
