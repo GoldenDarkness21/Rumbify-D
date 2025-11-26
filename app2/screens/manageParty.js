@@ -53,9 +53,9 @@ export default async function renderManageParty(routeData = {}) {
       <!-- Guest Approval Modal -->
       <div id="guestApprovalModal" class="modal-overlay hidden">
         <div class="modal-card">
-          <div class="modal-close" id="ga-close">ÁE/div>
+          <div class="modal-close" id="ga-close">×</div>
           <div class="modal-title">Solicitud de invitación</div>
-          <img id="ga-avatar" src="./assets/userIcon.svg" alt="Avatar" class="modal-avatar"/>
+          <img id="ga-avatar" src="/assets/userIcon.svg" alt="Avatar" class="modal-avatar"/>
           <div id="ga-name" class="modal-name">Invitado</div>
           <div class="modal-actions">
             <button id="ga-approve" class="btn btn-approve">✁E/button>
@@ -146,7 +146,7 @@ export default async function renderManageParty(routeData = {}) {
 
   // Cargar CSS específico de la pantalla
   (function(){
-    const cssHref = './screens/manageParty.css';
+    const cssHref = '/screens/manageParty.css';
     if (!document.querySelector(`link[href="${cssHref}"]`)) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
@@ -259,7 +259,7 @@ export default async function renderManageParty(routeData = {}) {
     const listEl = document.getElementById('guestList');
     listEl.innerHTML = guestsData.slice(0, 10).map(g => `
       <li class="guest-item">
-        <img src="${g.avatar || './assets/userIcon.svg'}" alt="${g.name}" class="guest-avatar"/>
+        <img src="${g.avatar || '/assets/userIcon.svg'}" alt="${g.name}" class="guest-avatar"/>
         <div class="guest-info">
           <div class="guest-name">${g.name}</div>
           <div class="guest-time">${g.time || ''}</div>
@@ -304,7 +304,7 @@ export default async function renderManageParty(routeData = {}) {
       const listEl = document.getElementById('guestList');
       listEl.innerHTML = guestsData.slice(0, 10).map(g => `
         <li class="guest-item">
-          <img src="${g.avatar || './assets/userIcon.svg'}" alt="${g.name}" class="guest-avatar"/>
+          <img src="${g.avatar || '/assets/userIcon.svg'}" alt="${g.name}" class="guest-avatar"/>
           <div class="guest-info">
             <div class="guest-name">${g.name}</div>
             <div class="guest-time">${g.time || ''}</div>
