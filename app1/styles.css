@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Dashboard Styles */
 #dashboard {
-  background: url('assets/BackgroundImage.png') center/cover no-repeat;
+  background: url('/assets/BackgroundImage.png') center/cover no-repeat;
   min-height: 100vh;
   padding: 0;
   padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
@@ -1026,9 +1026,9 @@ h1, h2, h3, h4, h5, h6,
   background-color: currentColor;
 }
 
-.icon-party { -webkit-mask: url('/app2/assets/partyIcon.svg') center/contain no-repeat; mask: url('/app2/assets/partyIcon.svg') center/contain no-repeat; }
-.icon-home  { -webkit-mask: url('./assets/homeIcon.svg')  center/contain no-repeat; mask: url('./assets/homeIcon.svg')  center/contain no-repeat; }
-.icon-user  { -webkit-mask: url('/app2/assets/userIcon.svg')  center/contain no-repeat; mask: url('/app2/assets/userIcon.svg')  center/contain no-repeat; }
+.icon-party { -webkit-mask: url('/assets/partyIcon.svg') center/contain no-repeat; mask: url('/assets/partyIcon.svg') center/contain no-repeat; }
+.icon-home  { -webkit-mask: url('/assets/homeIcon.svg')  center/contain no-repeat; mask: url('/assets/homeIcon.svg')  center/contain no-repeat; }
+.icon-user  { -webkit-mask: url('/assets/userIcon.svg')  center/contain no-repeat; mask: url('/assets/userIcon.svg')  center/contain no-repeat; }
 
 .nav-item span {
   font-size: 12px;
@@ -1056,7 +1056,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Event Details Styles */
 #event-details {
-  background: url('assets/BackgroundImage.png') center/cover no-repeat;
+  background: url('/assets/BackgroundImage.png') center/cover no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
   padding: 0;
@@ -1392,7 +1392,7 @@ h1, h2, h3, h4, h5, h6,
   min-height: 100vh;
   background: 
     linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.6) 100%),
-    url('assets/Background.png');
+    url('/assets/Background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1563,7 +1563,7 @@ h1, h2, h3, h4, h5, h6,
   background: 
     linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.6) 100%),
     /* Replaceable background image */
-    url('assets/Background.png');
+    url('/assets/Background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1873,7 +1873,7 @@ h1, h2, h3, h4, h5, h6,
   background: 
     linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.6) 100%),
     /* Replaceable background image */
-    url('assets/Background.png');
+    url('/assets/Background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2219,7 +2219,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Profile Screen Styles */
 #profile-screen {
-  background: url('assets/BackgroundImage.png') center/cover no-repeat;
+  background: url('/assets/BackgroundImage.png') center/cover no-repeat;
   min-height: 100vh;
   padding: 0 0 100px 0;
   position: relative;
@@ -2516,7 +2516,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Edit Profile Screen Styles */
 #edit-profile-screen {
-  background: url('assets/BackgroundImage.png') center/cover no-repeat;
+  background: url('/assets/BackgroundImage.png') center/cover no-repeat;
   min-height: 100vh;
   padding: 0 0 100px 0;
   position: relative;
@@ -2947,7 +2947,7 @@ input:checked + .toggle-slider:before {
 
 /* ===== MEMBER DASHBOARD STYLES ===== */
 #member-dashboard {
-  background: url('assets/BackgroundImage.png') center/cover no-repeat;
+  background: url('/assets/BackgroundImage.png') center/cover no-repeat;
   min-height: 100vh;
   color: white;
   position: relative;
@@ -3567,7 +3567,7 @@ input:checked + .toggle-slider:before {
   margin: 0;
 }
 
-/* Bottom Navigation (App1) — aligned to App2 look and full width */
+/* Bottom Navigation (App1)  Ealigned to App2 look and full width */
 .bottom-nav {
   position: fixed;
   bottom: 24px;
@@ -3917,7 +3917,7 @@ input:checked + .toggle-slider:before {
 /* Party Details Screen Styles */
 #party-details-screen {
   min-height: 100vh;
-  background: url('assets/BackgroundImage.png') center/cover no-repeat;
+  background: url('/assets/BackgroundImage.png') center/cover no-repeat;
   background-attachment: fixed;
   color: white;
   display: flex;
