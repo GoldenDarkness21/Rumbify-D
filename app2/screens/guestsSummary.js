@@ -77,7 +77,7 @@ export default async function renderGuestsSummary(routeData = {}) {
         <div class="modal-card">
           <div class="modal-close" id="gm-close">×</div>
           <div class="modal-title">Solicitud de invitación</div>
-          <img id="gm-avatar" src="/app2/assets/userIcon.svg" alt="Avatar" class="modal-avatar"/>
+          <img id="gm-avatar" src="./assets/userIcon.svg" alt="Avatar" class="modal-avatar"/>
           <div id="gm-name" class="modal-name">Invitado</div>
           <div class="modal-actions">
             <button id="gm-approve" class="btn btn-approve">✓</button>
@@ -90,7 +90,7 @@ export default async function renderGuestsSummary(routeData = {}) {
 
   // Cargar CSS específico de la pantalla
   (function(){
-    const cssHref = '/app2/screens/guestsSummary.css';
+    const cssHref = './screens/guestsSummary.css';
     if (!document.querySelector(`link[href="${cssHref}"]`)) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
@@ -119,7 +119,7 @@ export default async function renderGuestsSummary(routeData = {}) {
 
     const renderItems = (items, status) => items.map(g => `
       <li class="guest-item" data-id="${g.id}" data-name="${g.name}" data-status="${status}">
-        <img src="/app2/assets/userIcon.svg" alt="${g.name}" class="guest-avatar"/>
+        <img src="./assets/userIcon.svg" alt="${g.name}" class="guest-avatar"/>
         <div class="guest-info">
           <div class="guest-name">${g.name}</div>
           <div class="guest-time"></div>

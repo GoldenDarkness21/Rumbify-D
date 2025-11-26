@@ -4,9 +4,9 @@ import { authManager } from "../auth.js";
 export default function renderMyParties(data = {}) {
   if (!authManager.isUserAdmin()) {
     if (authManager.isUserMember()) {
-      window.location.href = '/app2/screen1';
+      window.location.href = 'https://app1-rumbify.vercel.app/screen1';
     } else {
-      window.location.href = '/app2/admin-login';
+      window.location.href = '/admin-login';
     }
     return;
   }
@@ -14,7 +14,7 @@ export default function renderMyParties(data = {}) {
   // Protection: ensure admin never accesses app1
   if (window.location.href.includes('/app1')) {
     console.log('Admin detected on app1, redirecting to my-parties');
-    window.location.href = '/app2/my-parties';
+    window.location.href = '/my-parties';
     return;
   }
 

@@ -818,7 +818,7 @@ async function handleCodeSubmission() {
       showModalError(response.message || 'Invalid code');
       // Si falta login, sugerir iniciar sesión
       if ((response.message || '').toLowerCase().includes('user')) {
-        setTimeout(() => navigateTo('/app1/welcome'), 1500);
+        setTimeout(() => navigateTo('/welcome'), 1500);
       }
     }
     

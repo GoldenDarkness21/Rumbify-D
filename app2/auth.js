@@ -86,7 +86,7 @@ function preventApp1Access() {
     if (window.location.pathname.includes('/app1') || 
         window.location.href.includes('/app1/')) {
       console.log('Admin attempting to access app1, redirecting to admin-dashboard');
-      window.location.href = '/app2/admin-dashboard';
+      window.location.href = '/admin-dashboard';
       return;
     }
   }
@@ -104,7 +104,7 @@ function interceptApp1Navigation() {
       const url = args[2];
       if (url && (url.includes('/app1') || url.includes('app1'))) {
         console.log('Admin attempting to navigate to app1, redirecting to admin-dashboard');
-        window.location.href = '/app2/admin-dashboard';
+        window.location.href = '/admin-dashboard';
         return;
       }
       return originalPushState.apply(this, args);
@@ -114,7 +114,7 @@ function interceptApp1Navigation() {
       const url = args[2];
       if (url && (url.includes('/app1') || url.includes('app1'))) {
         console.log('Admin attempting to replace state to app1, redirecting to admin-dashboard');
-        window.location.href = '/app2/admin-dashboard';
+        window.location.href = '/admin-dashboard';
         return;
       }
       return originalReplaceState.apply(this, args);
@@ -134,7 +134,7 @@ window.addEventListener('popstate', preventApp1Access);
 setInterval(() => {
   if (authManager.isUserAdmin() && window.location.href.includes('/app1')) {
     console.log('Admin detected on app1, redirecting to admin-dashboard');
-    window.location.href = '/app2/admin-dashboard';
+    window.location.href = '/admin-dashboard';
   }
 }, 100);
 
@@ -211,38 +211,38 @@ function handleUnauthorizedAccess(route) {
   // Si es una ruta de login y ya hay sesión, redirigir según el tipo de usuario
   if (loginRoutes.includes(route) && authManager.isAuthenticated()) {
     if (authManager.isUserAdmin()) {
-      window.location.href = '/app2/admin-dashboard';
+      window.location.href = '/admin-dashboard';
     } else if (authManager.isUserMember()) {
-      window.location.href = '/app1/dashboard';
+      window.location.href = 'https://app1-rumbify.vercel.app/dashboard';
     }
     return;
   }
   
   // Si es una ruta de admin y el usuario es miembro, redirigir a su dashboard
   if (adminRoutes.includes(route) && authManager.isUserMember()) {
-    window.location.href = '/app1/dashboard';
+    window.location.href = 'https://app1-rumbify.vercel.app/dashboard';
     return;
   }
   
   // Si es una ruta de miembro y el usuario es admin, redirigir a my-parties
   if (memberRoutes.includes(route) && authManager.isUserAdmin()) {
-    window.location.href = '/app2/my-parties';
+    window.location.href = '/my-parties';
     return;
   }
   
   // Si no hay usuario autenticado, ir a login
   if (!authManager.isAuthenticated()) {
-    window.location.href = '/app2/admin-login';
+    window.location.href = '/admin-login';
     return;
   }
   
   // NUNCA permitir que admin acceda a app1
   if (authManager.isUserAdmin()) {
-    window.location.href = '/app2/my-parties';
+    window.location.href = '/my-parties';
   } else if (authManager.isUserMember()) {
-    window.location.href = '/app1/dashboard';
+    window.location.href = 'https://app1-rumbify.vercel.app/dashboard';
   } else {
-    window.location.href = '/app2/admin-login';
+    window.location.href = '/admin-login';
   }
 }
 

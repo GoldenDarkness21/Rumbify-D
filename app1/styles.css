@@ -1027,7 +1027,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .icon-party { -webkit-mask: url('/app2/assets/partyIcon.svg') center/contain no-repeat; mask: url('/app2/assets/partyIcon.svg') center/contain no-repeat; }
-.icon-home  { -webkit-mask: url('/app1/assets/homeIcon.svg')  center/contain no-repeat; mask: url('/app1/assets/homeIcon.svg')  center/contain no-repeat; }
+.icon-home  { -webkit-mask: url('./assets/homeIcon.svg')  center/contain no-repeat; mask: url('./assets/homeIcon.svg')  center/contain no-repeat; }
 .icon-user  { -webkit-mask: url('/app2/assets/userIcon.svg')  center/contain no-repeat; mask: url('/app2/assets/userIcon.svg')  center/contain no-repeat; }
 
 .nav-item span {

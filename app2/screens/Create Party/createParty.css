@@ -446,9 +446,9 @@
 }
 
 /* Mapear SVGs como máscaras como en app1 */
-.icon-party { -webkit-mask: url('/app2/assets/partyIcon.svg') center/contain no-repeat; mask: url('/app2/assets/partyIcon.svg') center/contain no-repeat; }
-.icon-plus  { -webkit-mask: url('/app2/assets/plusIcon.svg')  center/contain no-repeat; mask: url('/app2/assets/plusIcon.svg')  center/contain no-repeat; }
-.icon-user  { -webkit-mask: url('/app2/assets/userIcon.svg')  center/contain no-repeat; mask: url('/app2/assets/userIcon.svg')  center/contain no-repeat; }
+.icon-party { -webkit-mask: url('../../assets/partyIcon.svg') center/contain no-repeat; mask: url('../../assets/partyIcon.svg') center/contain no-repeat; }
+.icon-plus  { -webkit-mask: url('../../assets/plusIcon.svg')  center/contain no-repeat; mask: url('../../assets/plusIcon.svg')  center/contain no-repeat; }
+.icon-user  { -webkit-mask: url('../../assets/userIcon.svg')  center/contain no-repeat; mask: url('../../assets/userIcon.svg')  center/contain no-repeat; }
 
 /* Label sizes to match */
 .bottom-nav .nav-item .nav-label { font-size: 12px; font-weight: 500; }

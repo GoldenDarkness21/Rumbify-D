@@ -112,15 +112,15 @@ function handleUnauthorizedAccess(route) {
   
   // Si no hay usuario autenticado, ir a welcome
   if (!authManager.isAuthenticated()) {
-    window.location.href = '/app1/welcome';
+    window.location.href = '/welcome';
     return;
   }
   
   // Si es miembro, redirigir a member-dashboard
   if (authManager.isUserMember()) {
-    window.location.href = '/app1/member-dashboard';
+    window.location.href = '/member-dashboard';
   } else {
-    window.location.href = '/app1/welcome';
+    window.location.href = '/welcome';
   }
 }
 

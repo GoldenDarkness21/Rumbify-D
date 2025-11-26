@@ -703,7 +703,7 @@ async function handleDeleteAccount() {
       alert("Tu cuenta ha sido eliminada exitosamente. Serás redirigido al inicio de sesión.");
       
       // Force redirect to admin login page
-      window.location.href = '/app2/admin-login';
+      window.location.href = '/admin-login';
     } else {
       throw new Error(result.message || 'Error al eliminar la cuenta');
     }

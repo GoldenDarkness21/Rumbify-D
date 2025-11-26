@@ -4,9 +4,9 @@ import { authManager } from "../auth.js";
 export default function renderAdminLogin(data = {}) {
   if (authManager.isAuthenticated()) {
     if (authManager.isUserAdmin()) {
-      window.location.href = '/app2/my-parties';
+      window.location.href = '/my-parties';
     } else if (authManager.isUserMember()) {
-      window.location.href = '/app1/dashboard';
+      window.location.href = 'https://app1-rumbify.vercel.app/dashboard';
     }
     return;
   }

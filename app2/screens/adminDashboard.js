@@ -4,9 +4,9 @@ import { authManager } from "../auth.js";
 export default function renderAdminDashboard(data = {}) {
   if (!authManager.isUserAdmin()) {
     if (authManager.isUserMember()) {
-      window.location.href = '/app2/screen1';
+      window.location.href = 'https://app1-rumbify.vercel.app/screen1';
     } else {
-      window.location.href = '/app2/admin-login';
+      window.location.href = '/admin-login';
     }
     return;
   }
@@ -14,7 +14,7 @@ export default function renderAdminDashboard(data = {}) {
   // Protección adicional: asegurar que el admin nunca pueda acceder a app1
   if (window.location.href.includes('/app1')) {
     console.log('Admin detected on app1, redirecting to admin-dashboard');
-    window.location.href = '/app2/admin-dashboard';
+    window.location.href = '/admin-dashboard';
     return;
   }
 

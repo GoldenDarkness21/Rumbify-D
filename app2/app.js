@@ -127,9 +127,9 @@ function renderRoute(currentRoute) {
     default:
       // Verificar si el usuario es admin antes de redirigir a app1
       if (authManager.isUserAdmin()) {
-        window.location.href = '/app2/my-parties';
+        window.location.href = '/my-parties';
       } else {
-        window.location.href = '/app1/welcome';
+        window.location.href = 'https://app1-rumbify.vercel.app/welcome';
       }
   }
 }
