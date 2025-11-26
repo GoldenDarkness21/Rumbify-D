@@ -734,7 +734,24 @@ const updateParty = async (req, res) => {
     if (safeAttendees !== undefined) payload.attendees = safeAttendees;
     if (resolvedLocation !== undefined) payload.location = resolvedLocation;
     if (displayDate !== undefined) payload.date = displayDate;
-    if (administrator !== undefined) payload.administrator = administrator;
+    // Si administrator es email, buscar el nombre actual por email
+    if (administrator !== undefined) {
+      // Buscar usuario por email si parece email
+      if (administrator.includes('@')) {
+        const { data: user, error: userErr } = await supabaseCli
+          .from('users')
+          .select('name')
+          .eq('email', administrator.toLowerCase().trim())
+          .single();
+        if (!userErr && user && user.name) {
+          payload.administrator = user.name;
+        } else {
+          payload.administrator = administrator; // fallback
+        }
+      } else {
+        payload.administrator = administrator;
+      }
+    }
     if (number !== undefined) payload.number = number ? String(number).replace(/\D+/g, "") : null;
     if (image !== undefined) payload.image = image;
     if (tags !== undefined) payload.tags = Array.isArray(tags) ? tags : [];
