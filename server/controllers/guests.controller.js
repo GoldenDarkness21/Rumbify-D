@@ -52,13 +52,35 @@ async function getPartyGuests(req, res) {
       return res.status(500).json({ error: error.message });
     }
 
+    // Get unique guest names to fetch their profile images
+    const guestNames = [...new Set((Array.isArray(data) ? data : []).map(g => g.name))];
+    let usersMap = {};
+
+    if (guestNames.length > 0) {
+      try {
+        const { data: users, error: usersError } = await supabaseCli
+          .from("users")
+          .select("name, profile_image")
+          .in("name", guestNames);
+
+        if (!usersError && users) {
+          usersMap = users.reduce((acc, user) => {
+            acc[user.name] = user.profile_image;
+            return acc;
+          }, {});
+        }
+      } catch (userErr) {
+        console.warn("Failed to fetch user profile images:", userErr);
+      }
+    }
+
     const guests = (Array.isArray(data) ? data : []).map(g => {
       const flag = typeof g.validado !== 'undefined' ? g.validado : g.valid;
       return {
         id: g.id,
         name: g.name,
         status: flag === true ? "Valid" : (flag === false ? "Invalid" : "Pending"),
-        avatar: null,
+        avatar: usersMap[g.name] || null,
         time: null,
       };
     });
@@ -140,6 +162,33 @@ async function getGuestsSummary(req, res) {
       ...filteredCodesPending
     ];
 
+    // Fetch profile images for all guests
+    const allGuestNames = [...new Set([
+      ...pending.map(g => g.name),
+      ...validated.map(g => g.name),
+      ...denied.map(g => g.name),
+      ...filteredCodesPending.map(g => g.name)
+    ])];
+
+    let usersMap = {};
+    if (allGuestNames.length > 0) {
+      try {
+        const { data: users, error: usersError } = await supabaseCli
+          .from("users")
+          .select("name, profile_image")
+          .in("name", allGuestNames);
+
+        if (!usersError && users) {
+          usersMap = users.reduce((acc, user) => {
+            acc[user.name] = user.profile_image;
+            return acc;
+          }, {});
+        }
+      } catch (userErr) {
+        console.warn("Failed to fetch user profile images:", userErr);
+      }
+    }
+
     return res.json({
       party: { id, title: partyTitle },
       totals: {
@@ -149,9 +198,9 @@ async function getGuestsSummary(req, res) {
         denied: denied.length,
       },
       lists: {
-        pending: pendingList,
-        validated: validated.map(g => ({ id: g.id, name: g.name })),
-        denied: denied.map(g => ({ id: g.id, name: g.name })),
+        pending: pendingList.map(g => ({ id: g.id, name: g.name, avatar: usersMap[g.name] || null })),
+        validated: validated.map(g => ({ id: g.id, name: g.name, avatar: usersMap[g.name] || null })),
+        denied: denied.map(g => ({ id: g.id, name: g.name, avatar: usersMap[g.name] || null })),
       },
     });
   } catch (err) {
