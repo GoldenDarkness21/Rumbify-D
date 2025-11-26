@@ -36,7 +36,7 @@ export default function renderCreateParty(data = {}) {
           <div class="form-group">
             <div id="image-upload-card" class="image-upload-card" role="button" tabindex="0" aria-label="Upload image">
               <div class="upload-inner">
-                <img src="./assets/uploadImage.svg" alt="Upload" class="upload-img" />
+                <img src="/assets/uploadImage.svg" alt="Upload" class="upload-img" />
                 <span class="upload-text">Upload Image</span>
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function renderCreateParty(data = {}) {
   if (!existing) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = './screens/Create Party/createParty.css';
+    link.href = '/screens/Create Party/createParty.css';
     link.setAttribute('data-create-party-css', 'true');
     head.appendChild(link);
   }
