@@ -1,0 +1,48 @@
+/* Styles specific to Guests Summary screen */
+#guests-summary-screen {
+  background: url('../assets/BackgroundImage.png') center/cover no-repeat;
+  min-height: 100vh;
+  padding-bottom: 80px;
+  background-attachment: fixed;
+}
+
+.top-section { padding: 8px 16px; }
+.top-label { color: white; font-size: 12px; margin-bottom: 6px; }
+.page-header { display: flex; align-items: center; gap: 12px; background: linear-gradient(90deg, #5b2cac, #6a35d3); color: #fff; padding: 10px 12px; border-radius: 8px; }
+.page-title { margin: 0; font-size: 16px; font-weight: 600; color: white; }
+.back-btn { background: transparent; border: none; padding: 0; display: flex; align-items: center; }
+.back-btn img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+
+/* Cards & content */
+.manage-party .status-card { margin: 12px 16px; padding: 12px; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; }
+.status-header h3 { color: white; margin: 0 0 10px 0; font-size: 18px; font-weight: 700; }
+.status-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; margin-top:10px; }
+.status-item { text-align:center; }
+.status-number { font-size:18px; font-weight:700; color: white; }
+.status-label { font-size:12px; color: white; }
+
+.guest-list { margin: 12px 16px; }
+.guest-list-header h3 { color: white; font-size: 18px; font-weight: 700; margin: 16px 0 8px 0; }
+.guest-items { list-style:none; padding:0; }
+.guest-item { display:flex; align-items:center; gap:10px; padding:8px; border-bottom:1px solid rgba(255,255,255,0.1); }
+.guest-avatar { width:32px; height:32px; border-radius:50%; }
+.guest-name { font-weight:600; color: white; }
+.guest-status { margin-left:auto; font-weight:700; }
+.guest-status.valid { color:#2ecc71; }
+.guest-status.invalid { color:#e74c3c; }
+.guest-status.pending { color:#f1c40f; }
+
+/* Modal overlay */
+.hidden { display: none !important; }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; z-index: 1000; }
+.modal-card { width: 320px; max-width: 90vw; background: #1b1734; color: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); text-align:center; position: relative; }
+.modal-close { position:absolute; right:10px; top:8px; cursor:pointer; font-size:18px; opacity:0.8; }
+.modal-title { font-weight:600; margin-bottom: 12px; }
+.modal-avatar { width:60px; height:60px; border-radius:50%; margin: 8px auto; display:block; }
+.modal-name { font-weight:700; font-size:14px; margin-bottom: 14px; }
+.modal-actions { display:flex; gap:14px; justify-content:center; }
+.btn { border:none; padding:8px 14px; border-radius:8px; font-weight:700; cursor:pointer; }
+.btn-approve { background:#2ecc71; color:#fff; }
+.btn-reject { background:#c0392b; color:#fff; }
+
+/* Nota: NO redefinimos .bottom-nav aquí para evitar conflictos con el estilo global compartido en app2/styles.css */

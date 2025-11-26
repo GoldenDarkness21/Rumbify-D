@@ -1,0 +1,497 @@
+/* Create Party Screen Styles */
+
+#app {
+  max-width: 414px;
+}
+
+/* Screen background */
+#create-party-screen {
+  min-height: 100vh;
+  background: url("../../assets/BackgroundImage.png") center/cover no-repeat;
+  padding: 16px;
+  /* Avoid overlap with fixed bottom nav */
+  padding-bottom: calc(140px + env(safe-area-inset-bottom, 0px));
+}
+
+.create-party-content {
+  padding: 16px;
+  border-radius: 16px;
+  /* background is transparent (set globally) */
+}
+
+.form-group,
+.form-row,
+.form-actions {
+  margin-bottom: 12px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* Inputs */
+.create-party-content input[type="text"],
+.create-party-content input[type="number"],
+.create-party-content input[type="date"],
+.create-party-content input[type="time"],
+.create-party-content input[type="url"],
+.create-party-content textarea {
+  width: 100%;
+  border: 2px solid #5b2ca2; /* purple border */
+  border-radius: 16px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.95);
+  color: #1a1a1a;
+  outline: none;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+.create-party-content input::placeholder,
+.create-party-content textarea::placeholder {
+  color: #a98ed9; /* lilac placeholder */
+}
+
+/* Labels */
+.create-party-content label {
+  display: block;
+  color: #e0d3ff;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Tickets management wrapper with gradient */
+.tickets-card {
+  padding: 12px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(99, 32, 238, 0.85) 7%, rgba(4, 232, 36, 0.85) 100%);
+}
+
+/* Price item in column */
+#prices-list .price-item {
+  display: grid;
+  grid-template-columns: 1fr 160px 28px; /* nombre | precio | borrar */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* Placeholder para mantener alineación en la primera fila sin botón */
+#prices-list .price-item .remove-price.placeholder { visibility: hidden; }
+
+/* Subfila para valor y delete, alineados horizontalmente */
+#prices-list .price-item .price-value-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#prices-list .price-item input.price-name-input,
+#prices-list .price-item input.price-value-input {
+  background: #fff;
+  border: 2px solid #5b2ca2;
+  border-radius: 16px;
+  padding: 10px 12px;
+}
+
+#prices-list .price-item input.price-name-input { flex: 1 1 auto; }
+#prices-list .price-item input.price-value-input { flex: 0 0 160px; }
+
+/* Delete icon smaller */
+#prices-list .price-item .remove-price {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+/* Header alignment fix */
+.tickets-header { align-items: flex-end; }
+.tickets-header label { margin-bottom: 0; }
+
+#prices-list .price-item input.price-value-input {
+  flex: 0 0 140px; /* precio compacto a la derecha */
+  background: #fff;
+  border: 2px solid #5b2ca2;
+  border-radius: 16px;
+  padding: 10px 12px;
+}
+
+/* Delete icon button (smaller) */
+#prices-list .price-item .remove-price {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; /* smaller */
+  height: 28px; /* smaller */
+  border-radius: 6px;
+  border: none;
+  background: url("../../assets/deleteButton.svg") center/contain no-repeat;
+  cursor: pointer;
+}
+
+/* Add button with icon */
+/* Tickets header: place Add button to the right, with icon */
+.tickets-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.tickets-header #add-price-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #17c964;
+  color: #0b0b0b;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tickets-header #add-price-btn::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url("../../assets/Add.svg") center/contain no-repeat;
+}
+
+/* Gradient card reused for admin & number */
+.gradient-card {
+  padding: 12px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(99, 32, 238, 0.85) 7%, rgba(4, 232, 36, 0.85) 100%);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px; /* extra space so the Create button stays visible */
+}
+
+/* Create button with gradient like tickets-card */
+#create-btn {
+  width: 100%;
+  max-width: 320px;
+  height: 52px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #6320EE 7%, #04E824 100%);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Extra separation above Create button */
+#create-btn { margin-top: 16px; }
+
+/* Multi-select styles (chips/toggle) */
+.multi-select-toggle {
+  width: 100%;
+  border-radius: 12px;
+  padding: 8px 12px;
+  border: 2px solid #5b2ca2;
+  background: rgba(255,255,255,0.95);
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+/* Tag dropdown menu: dark purple background and Inter Regular */
+.multi-select-menu {
+  display: none;
+  background: rgba(44, 16, 90, 0.95); /* dark purple */
+  border: 2px solid #5b2ca2; /* purple border */
+  border-radius: 12px;
+  padding: 8px;
+  margin-top: 8px;
+  color: #e0d3ff; /* light text for contrast */
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-weight: 400; /* Inter Regular */
+  max-height: 240px; /* keep within viewport */
+  overflow-y: auto; /* allow scroll */
+  scrollbar-width: none; /* Firefox: hide scrollbar */
+  -ms-overflow-style: none; /* IE/Edge legacy: hide scrollbar */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  z-index: 10;
+}
+/* WebKit: hide scrollbar visuals but keep scroll functionality */
+.multi-select-menu::-webkit-scrollbar { width: 0 !important; height: 0 !important; }
+.multi-select-menu::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+.multi-select-menu::-webkit-scrollbar-track { background: transparent; }
+.multi-select-menu::-webkit-scrollbar-thumb { background: transparent; }
+
+/* Toggle also in Inter regular for consistency */
+.multi-select-toggle {
+  font-weight: 400;
+}
+
+/* Items inside dropdown */
+.multi-select-menu .tag-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #e9ddff;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  font-weight: 400;
+}
+
+.multi-select-menu .tag-option:hover {
+  background: rgba(91, 44, 162, 0.45); /* lighter purple hover */
+}
+
+/* Purple checkbox accent */
+.multi-select-menu input[type="checkbox"] {
+  accent-color: #6320EE;
+}
+
+.multi-select-menu.open { display: block; }
+
+.multi-select-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+.multi-select-chips .chip {
+  background: rgba(255,255,255,0.8);
+  border: 1px solid #d7c8ff;
+  color: #3c2b5c;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+/* Ajustes de separación y radios pedidos */
+.tickets-card,
+.gradient-card,
+#prices-list .price-item input.price-value-input,
+#create-btn {
+  border-radius: 17px;
+}
+
+/* Separación entre la sección de Contact y el botón Create */
+.contact-card {
+  margin-bottom: 20px; /* más separados del botón */
+}
+
+/* Mayor separación entre filas dentro de tickets y contact */
+#prices-list .price-item { margin-bottom: 16px; }
+.contact-card .form-row { flex-direction: column; gap: 16px; }
+
+/* Separación extra entre el título "Contact" y su tarjeta */
+.create-party-content .form-group label + .contact-card { margin-top: 8px; }
+
+/* Estilos para calendario y hora (flatpickr) con look del menú de tags */
+.flatpickr-calendar {
+  background: rgba(44, 16, 90, 0.95);
+  border: 2px solid #5b2ca2;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color: #e0d3ff;
+}
+.flatpickr-months, .flatpickr-weekdays {
+  background: transparent;
+  color: #e0d3ff;
+}
+.flatpickr-weekday { color: #cfc0f4; }
+.flatpickr-day {
+  color: #e9ddff;
+  border-radius: 8px;
+}
+.flatpickr-day:hover {
+  background: rgba(91, 44, 162, 0.45);
+}
+.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange {
+  background: #6320EE;
+  color: #fff;
+}
+.flatpickr-time {
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.flatpickr-time .numInputWrapper {
+  background: rgba(44, 16, 90, 0.6);
+  border: 2px solid #5b2ca2;
+  border-radius: 10px;
+}
+.flatpickr-time input {
+  color: #e0d3ff;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+.flatpickr-time .numInputWrapper span.arrowUp,
+.flatpickr-time .numInputWrapper span.arrowDown {
+  border-color: #a98ed9;
+}
+.flatpickr-months .flatpickr-prev-month svg,
+.flatpickr-months .flatpickr-next-month svg {
+  fill: #e0d3ff;
+}
+
+/* Image upload card */
+.image-upload-card {
+  position: relative;
+  border: 2px solid #9c6bff;
+  border-radius: 14px;
+  padding: 22px;
+  background: #2a1b4a;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  width: 100%;
+  min-height: 220px;
+  margin-bottom: 36px; /* más separación del título */
+  display: flex; /* centrar contenido */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.image-upload-card::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border: 1.5px solid #c6b2f5;
+  border-radius: 12px;
+  pointer-events: none; /* evita interferir con clics */
+}
+.image-upload-card.has-image .upload-inner { display: none; }
+.upload-inner { 
+  color: #e0d3ff; 
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 8px; /* separación entre icono y texto */
+}
+.upload-img { width: 56px; height: 56px; display: inline-block; filter: drop-shadow(0 0 1px rgba(255,255,255,0.35)); }
+.upload-text { display: block; font-weight: 600; font-size: 16px; }
+
+/* Replace CSS icon with SVG image */
+.upload-img { width: 36px; height: 36px; display: inline-block; margin-bottom: 8px; filter: drop-shadow(0 0 1px rgba(255,255,255,0.35)); }
+.upload-text { display: block; font-weight: 600; font-size: 16px; }
+
+/* Remove old CSS icon rules */
+/* .upload-icon, .upload-icon::before, .upload-icon::after { display: none !important; content: none !important; } */
+.upload-icon::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-left: 2px solid #c6b2f5;
+  border-top: 2px solid #c6b2f5;
+  transform: translateX(-50%) rotate(45deg);
+}
+.upload-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  width: 16px;
+  height: 2px;
+  background: #c6b2f5;
+  transform: translateX(-50%);
+}
+.upload-text { display: block; font-weight: 600; }
+/* Bottom navigation (Create Party) - match app1 */
+.bottom-nav {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 500px;
+  background: #4b27b8;
+  display: flex;
+  justify-content: space-around;
+  padding: 16px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 36px;
+  backdrop-filter: saturate(140%) blur(6px);
+  box-sizing: border-box;
+}
+
+.bottom-nav .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: color 0.18s ease, transform 0.12s ease;
+  padding: 8px 10px;
+  border-radius: 16px;
+  user-select: none;
+}
+
+.bottom-nav .nav-item:active { transform: scale(0.98); }
+
+/* Icon masks driven by currentColor */
+.nav-icon {
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+/* Mapear SVGs como máscaras como en app1 */
+.icon-party { -webkit-mask: url('/app2/assets/partyIcon.svg') center/contain no-repeat; mask: url('/app2/assets/partyIcon.svg') center/contain no-repeat; }
+.icon-plus  { -webkit-mask: url('/app2/assets/plusIcon.svg')  center/contain no-repeat; mask: url('/app2/assets/plusIcon.svg')  center/contain no-repeat; }
+.icon-user  { -webkit-mask: url('/app2/assets/userIcon.svg')  center/contain no-repeat; mask: url('/app2/assets/userIcon.svg')  center/contain no-repeat; }
+
+/* Label sizes to match */
+.bottom-nav .nav-item .nav-label { font-size: 12px; font-weight: 500; }
+
+/* Estados como app1 */
+.bottom-nav .nav-item.active { color: #4ade80; }
+.bottom-nav .nav-item:hover { color: #ffffff; }
+/* Mantener layout vertical como en app1 */
+.bottom-nav .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.18s ease, transform 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bottom-nav .nav-item:hover { color: #4ade80; }
+.bottom-nav .nav-item.active { color: #4ade80; }
+
+/* Icon masks driven by currentColor (26px como app1) */
+.nav-icon {
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.icon-party { -webkit-mask-image: url("../../assets/partyIcon.svg"); mask-image: url("../../assets/partyIcon.svg"); }
+.icon-plus  { -webkit-mask-image: url("../../assets/plusIcon.svg");  mask-image: url("../../assets/plusIcon.svg"); }
+.icon-user  { -webkit-mask-image: url("../../assets/userIcon.svg");  mask-image: url("../../assets/userIcon.svg"); }
+
+/* Label tamaño como app1 */
+.nav-label { font-size: 12px; font-weight: 500; }
+.upload-text { display: block; font-weight: 600; }
